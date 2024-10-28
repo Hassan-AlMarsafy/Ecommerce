@@ -1,0 +1,48 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <header>
+
+    </header>
+    <body>
+        <div class="col-lg-4">
+        <h5>signup</h5>
+        {% if messages %}
+        {% for message in messages %}
+            <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+        <form class="box-element product" action="/signup" method="post">
+           {% csrf_token %}
+            <h6><label for="">Username</label></h6>
+            <input type="text" id="username" name="username" placeholder="username" required>
+            <br>
+            <br>
+            <h6><label for="">First Name</label></h6>
+            <input type="text" id="fname" name="fname" placeholder="first name" required>
+            <br>
+            <br>
+            <h6><label for="">Last Name</label></h6>
+            <input type="text" id="lname" name="lname" placeholder="last name" required>
+            <br>
+            <br>
+            <h6><label for="">Email</label></h6>
+            <input type="email" id="email" name="email" placeholder="me@gmail.com" required>
+            <br>
+            <br>
+            <h6><label for="">Password</label></h6>
+            <input type="password" id="pass1" name="pass1" placeholder="password" required>
+            <br>
+            <br>
+            <h6><label for="">Confirm Password</label></h6>
+            <input type="password" id="pass2" name="pass2" placeholder="confirm password" required>
+            <br>
+            <br>
+            <button class="btn btn-warning" type="submit">Sign Up</button>
+        </form>
+    </div>
+    </body>
+</html>
+{% endblock content %}
